@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form action="" id="book-add-form" enctype="multipart/form-data">
+        <div>
+            <input name="title" placeholder="Book title" required />
+        </div>
+        <div>
+            <input name="author" placeholder="Book author" required />
+        </div>
+        <div>
+            <input type="file" name="cover" required multiple />
+        </div>
+        <button>Add book</button>
+    </form>
+
+    <script>
+        const bookAddForm = document.getElementById("book-add-form");
+        bookAddForm.addEventListener("submit", function(e){
+            e.preventDefault();
+            const{title, author, cover} = this.elements;
+            // console.log(title.value);
+            // console.log(author.value);
+            // console.log(cover.files);
+            const data = new FormData();
+            data.append("title", title.value);
+            data.append("author", author.value);
+            data.append("cover", cover.files[0]);
+        })
+    </script>
+</body>
+
+</html>
