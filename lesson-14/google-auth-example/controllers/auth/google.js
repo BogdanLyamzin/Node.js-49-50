@@ -14,7 +14,7 @@ const google = async(req, res)=> {
     const token = jwt.sign(payload, SECRET_KEY, {expiresIn: "23h"});
     await User.findByIdAndUpdate(id, {token});
 
-    res.redirect(`http://localhost:3000?token=${token}`)
+    res.redirect(`http://localhost:3001?token=${token}`)
 }
 
 module.exports = google;
